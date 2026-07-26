@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yoonwoo (Roy) Ku</title>
+<meta name="description" content="Yoonwoo (Roy) Ku — undergraduate in Computer Science and Engineering at Seoul National University. Research on the inductive bias of vision models, efficient inference, and combinatorial optimization.">
+<meta name="author" content="Yoonwoo Ku">
+<meta name="theme-color" content="#fbfaf8">
+
+<!-- Open Graph: controls the preview card when the link is shared -->
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Yoonwoo (Roy) Ku">
+<meta property="og:description" content="CSE undergraduate at Seoul National University. Inductive bias of vision models, efficient inference, combinatorial optimization, competitive programming.">
+<meta property="og:url" content="https://royk999.github.io/">
+
+<style>
+  :root {
+    --bg:      #fbfaf8;
+    --fg:      #22201d;
+    --muted:   #6f6a63;
+    --faint:   #97918a;
+    --rule:    #e6e2db;
+    --link:    #2a4d7a;
+    --chip:    #f0ede7;
+    --measure: 42rem;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg:    #15141a;
+      --fg:    #e9e6e2;
+      --muted: #a09a92;
+      --faint: #7d776f;
+      --rule:  #2c2a31;
+      --link:  #8fb6e6;
+      --chip:  #221f28;
+    }
+  }
+
+  * { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue",
+                 "Apple SD Gothic Neo", "Malgun Gothic", Arial, sans-serif;
+    font-size: 16.5px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  .wrap {
+    max-width: var(--measure);
+    margin: 0 auto;
+    padding: 4.5rem 1.5rem 5rem;
+  }
+
+  a {
+    color: var(--link);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color .15s ease;
+  }
+  a:hover { border-bottom-color: currentColor; }
+
+  /* ---------- header ---------- */
+
+  header { display: flex; gap: 1.5rem; align-items: center; margin-bottom: 2.75rem; }
+
+  .avatar {
+    width: 96px; height: 96px; flex: 0 0 96px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: var(--chip);
+    border: 1px solid var(--rule);
+  }
+
+  h1 {
+    font-size: 1.7rem;
+    font-weight: 600;
+    letter-spacing: -.015em;
+    margin: 0 0 .3rem;
+    line-height: 1.2;
+  }
+
+  .kr { color: var(--faint); font-weight: 400; font-size: .95rem; margin-left: .45rem; }
+
+  .tagline { color: var(--muted); margin: 0 0 .7rem; font-size: .95rem; }
+
+  .links { font-size: .9rem; color: var(--faint); }
+  .links a { margin-right: .35rem; }
+  .links span[aria-hidden] { margin-right: .35rem; }
+
+  @media (max-width: 480px) {
+    header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    .wrap { padding-top: 3rem; }
+  }
+
+  /* ---------- sections ---------- */
+
+  h2 {
+    font-size: .74rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .13em;
+    color: var(--faint);
+    margin: 3.25rem 0 1.4rem;
+    padding-bottom: .55rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .intro p { margin: 0 0 1rem; }
+  .intro p:last-child { margin-bottom: 0; }
+
+  .item { margin-bottom: 1.9rem; }
+  .item:last-child { margin-bottom: 0; }
+
+  .head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+  }
+
+  .title { font-weight: 600; font-size: 1rem; line-height: 1.4; }
+
+  .when {
+    color: var(--faint);
+    font-size: .82rem;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .role { color: var(--muted); font-size: .89rem; margin-top: .1rem; }
+
+  .item p { margin: .5rem 0 0; font-size: .95rem; }
+
+  .note { color: var(--muted); }
+
+  ul.plain { list-style: none; margin: 0; padding: 0; }
+  ul.plain li { margin-bottom: .7rem; font-size: .95rem; }
+  ul.plain li:last-child { margin-bottom: 0; }
+
+  .lead { font-weight: 600; }
+
+  .empty {
+    color: var(--muted);
+    font-size: .95rem;
+    font-style: italic;
+    margin: 0;
+  }
+
+  code {
+    background: var(--chip);
+    padding: .08em .35em;
+    border-radius: 3px;
+    font-size: .88em;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+
+  footer {
+    margin-top: 4rem;
+    padding-top: 1.4rem;
+    border-top: 1px solid var(--rule);
+    color: var(--faint);
+    font-size: .82rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+</style>
+</head>
+
+<body>
+<div class="wrap">
+
+  <header>
+    <!-- Replace profile.jpg with your own photo (square crop, ~400x400 works well).
+         If the file is missing, a neutral placeholder is shown instead. -->
+    <img class="avatar" src="profile.jpg" alt="Yoonwoo Ku"
+         onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 96 96%22&gt;&lt;rect width=%2296%22 height=%2296%22 fill=%22%23e9e5de%22/&gt;&lt;text x=%2248%22 y=%2260%22 font-family=%22Helvetica,Arial%22 font-size=%2234%22 fill=%22%23a29b92%22 text-anchor=%22middle%22&gt;YK&lt;/text&gt;&lt;/svg&gt;'">
+    <div>
+      <h1>Yoonwoo Ku <span class="kr">구윤우 · Roy</span></h1>
+      <p class="tagline">Computer Science &amp; Engineering, Seoul National University</p>
+      <p class="links">
+        <a href="mailto:roynine90@gmail.com">roynine90@gmail.com</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://github.com/royk999">GitHub</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://linkedin.com/in/yoonwoo-ku">LinkedIn</a>
+        <!-- To add your CV, drop the PDF in this folder and uncomment:
+        <span aria-hidden="true">·</span>
+        <a href="cv.pdf">CV</a>
+        -->
+      </p>
+    </div>
+  </header>
+
+  <section class="intro">
+    <p>Hi &#128075; I&rsquo;m a second-year undergraduate in Computer Science and Engineering
+    at Seoul National University, and an undergraduate researcher in
+    <a href="https://jaesik.info/">Prof. Jaesik Park</a>&rsquo;s lab.</p>
+
+    <p>I work on <span class="lead">what neural networks actually compute, and how much of that
+    computation is necessary</span> &mdash; measuring how information travels through a model, and using
+    those measurements to make inference cheaper without retraining. Before that, most of my
+    research was combinatorial: Markov-chain analysis of group-division strategies, learned
+    heuristics for NP-hard graph problems, and mixed-integer routing.</p>
+
+    <p>The through-line is that I like problems where a clean mathematical object &mdash; a Markov
+    chain, a kernel, a spectrum &mdash; turns something people had been estimating by simulation into
+    something you can compute exactly. I also compete in algorithmic contests, which is where I
+    learned to write code that has to be right the first time.</p>
+  </section>
+
+  <h2>Research</h2>
+
+  <div class="item">
+    <div class="head">
+      <span class="title">Predicting Early-Exit Depth in Vision&ndash;Language Models</span>
+      <span class="when">2026 &ndash; present</span>
+    </div>
+    <div class="role">BK21 Outstanding Undergraduate Researcher, SNU CSE</div>
+    <p>Large VLMs are over-provisioned: for many inputs the visual decision is settled well before
+    the final layer. Recent work found these shortcuts empirically but cannot say <em>which</em>
+    layer is safe for <em>which</em> input. I&rsquo;m building a framework that predicts the effective
+    exit depth per sample from the model&rsquo;s own internal signals &mdash; a redefinition of Effective
+    Receptive Distance for VLM backbones, task-coupled decoding saturation via linear probes and
+    the logit lens, and Hessian curvature to identify layers that drop safely without healing
+    fine-tuning &mdash; then verifies the predictions causally against static pruning baselines.
+    Training-free, single-GPU, frozen models.</p>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <span class="title">Inductive Bias of Vision Models via the Metaformer Framework</span>
+      <span class="when">Mar 2026 &ndash; present</span>
+    </div>
+    <div class="role">Undergraduate researcher, 4-person independent research team</div>
+    <p>Prior comparisons of ViT, local ViT, MLP-Mixer and Convformer report accuracy and stop there.
+    We isolate the token mixer inside a unified Metaformer backbone and ask what each one biases the
+    model toward. I proposed <span class="lead">Effective Receptive Distance (ERD)</span>, which weights
+    Manhattan distance by each anchor patch&rsquo;s effective receptive field to quantify how far a model
+    reaches for information, and implemented the ERF and Centered Kernel Alignment pipelines in
+    PyTorch. Findings so far: architectural long-range bias produces large ERD independently of
+    accuracy, data-specific weights pull ERD sharply inward, locality models transform
+    representations in discrete blocks while long-range models do it in one pass, and data-specific
+    weights flatten the loss surface while increasing non-convexity.</p>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <span class="title">Data Attribution for Real-Time Digital Royalty</span>
+      <span class="when">Dec 2025</span>
+    </div>
+    <div class="role">Lead author, research proposal &mdash; SNU Engineering Innovation Talent Program</div>
+    <p>A proposal for tracing a generative model&rsquo;s output back to the training data that produced
+    it, fast enough to settle royalties in real time. Diagnosed the scalability and
+    data-relationship limits of TRAK, and proposed combining kernel methods with a GNN-based data
+    lineage graph (SCC clustering plus topological sort) to prune the search space and surface
+    first-source creators. Selected for the program&rsquo;s research support.</p>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <span class="title">Minimum Weighted Vertex Cover via GCN + Guided Local Search</span>
+      <span class="when">2024</span>
+    </div>
+    <p>A hybrid heuristic for MWVC: a graph convolutional network proposes candidate covers, then
+    guided local search refines them under weighted-cost constraints. Closed 25% of the optimality
+    gap against greedy and LP-relaxation baselines on benchmark graphs, aimed at large sparse
+    networks where exact solvers are out of reach.</p>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <span class="title">Optimal Group Division for Multi-Person Rock&ndash;Paper&ndash;Scissors</span>
+      <span class="when">2023 &ndash; 2024</span>
+    </div>
+    <div class="role">Team leader and lead presenter &mdash; Regeneron ISEF 2024, Korean national delegation</div>
+    <p>Twenty people playing rock&ndash;paper&ndash;scissors to a single winner takes roughly a thousand
+    rounds. Prior work split players into groups to speed this up but ignored the unfairness that
+    uneven splits create. We defined an efficiency metric (expected rounds) and a fairness metric
+    (spread of win probabilities), and computed the efficiency metric <em>exactly</em> &mdash; where prior
+    work could only approximate it &mdash; by Jordan-diagonalizing the Markov chain over group states.
+    A 300-line C++ program (backtracking to enumerate sequences, DP for the efficiency index)
+    then found the optimal division for every n &le; 100. The optimal sequence is 5.76% faster and
+    71.4% fairer than the random baseline, and 40.1% fairer than the fastest sequence at a 1.16%
+    speed cost. The same structure applies to task splitting in parallel computing and to
+    tournament design.</p>
+    <p class="note">First place in the Mathematics division at the Korea Creative R&amp;E Contest
+    (Minister of Science and ICT award), then one of four national R&amp;E delegations sent to
+    Regeneron ISEF 2024. I derived the Jordan-diagonalization approach, wrote all of the code,
+    presented for the team, and later mentored the following year&rsquo;s delegates at the
+    foundation&rsquo;s request.</p>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <span class="title">Mobile EV Charging Station Placement and Routing</span>
+      <span class="when">2024</span>
+    </div>
+    <div class="role">SNU PreURP</div>
+    <p>A mixed-integer program for joint depot placement and multi-stop routing, built on a
+    GIS-derived travel-time matrix, minimizing demand-weighted lead time under a budget constraint.
+    Simulation and sensitivity analysis showed an 8&ndash;9% lead-time reduction over a static-station
+    baseline. Outstanding Paper Award, Korean Society for the Gifted (top 15 of 64 teams).</p>
+  </div>
+
+  <div class="item">
+    <div class="head">
+      <span class="title">SNU CSE AI Paper Reading Group</span>
+      <span class="when">Mar 2025 &ndash; present</span>
+    </div>
+    <div class="role">Co-founder</div>
+    <p>Co-founded the department&rsquo;s peer-led paper group; 20+ sessions covering CNN/RNN,
+    Transformers, GAN/VAE, diffusion, and papers like <em>The Curse of Recursion</em> and
+    <em>Grokking</em>. I led the deep dives on score-based and SDE diffusion models, deriving the
+    stochastic foundations &mdash; It&ocirc;&rsquo;s formula, Langevin dynamics, annealed importance sampling
+    &mdash; from first principles.</p>
+  </div>
+
+  <h2>Competitive Programming</h2>
+
+  <ul class="plain">
+    <li><span class="lead">ICPC Korea Regional Contest</span> &mdash; regional finalist as a freshman,
+    three-person team (Nov 2025).</li>
+    <li><span class="lead">Korea Olympiad in Informatics</span> &mdash; Silver medal (first round),
+    Bronze medal (second round), and KOI Winter School completion.</li>
+    <li><span class="lead">Nexon Youth Programming Contest</span> &mdash; national finalist.</li>
+    <li><span class="lead">Online judges</span> &mdash; Baekjoon Platinum I, top 1%, 570+ problems
+    solved; Codeforces Specialist, max rating 1560. Regular on Codeforces and AtCoder.</li>
+    <li>Strongest areas: graph algorithms, dynamic programming, segment trees, network flow, and
+    combinatorial optimization. Working language is C++17/20.</li>
+  </ul>
+
+  <h2>Education &amp; Honors</h2>
+
+  <div class="item">
+    <div class="head">
+      <span class="title">Seoul National University</span>
+      <span class="when">Mar 2025 &ndash; Feb 2029 (expected)</span>
+    </div>
+    <div class="role">B.S. in Computer Science and Engineering</div>
+    <p>Cumulative GPA 4.11 / 4.30 &middot; Major GPA 4.22 / 4.30 &middot; 98.1 / 100 converted.</p>
+    <p class="note">Selected coursework: Data Structures (A+), Discrete Mathematics (A+),
+    Logic Design (A+), Linear Algebra 1 (A+), Statistics (A+), Engineering Mathematics 1 (A+),
+    Introduction to Analysis 1 (A0), Foundations of Deep Learning (A0), and Mathematical
+    Foundations of Deep Neural Networks (A0, a third-year elective taken in my first year).</p>
+  </div>
+
+  <ul class="plain">
+    <li><span class="lead">Presidential Science Scholarship</span>, Republic of Korea &mdash;
+    Information Science track, 2025.</li>
+    <li><span class="lead">BK21 Outstanding Undergraduate Researcher</span>, SNU CSE &mdash; 2026.</li>
+    <li><span class="lead">SNU Engineering Innovation Talent Program</span> &mdash; research support,
+    2026.</li>
+    <li><span class="lead">Most Outstanding (Innovation Challenge) Award</span>, Korea Creative
+    R&amp;E Contest &mdash; first in the Mathematics division, awarded by the Minister of Science and
+    ICT, 2023.</li>
+    <li><span class="lead">Korean national delegate, Regeneron ISEF 2024</span> &mdash; one of four
+    R&amp;E delegations; 1,800+ students from 75+ countries.</li>
+    <li><span class="lead">Second place nationally</span>, 1st High School AI Contest (DACON)
+    &mdash; 46-team finals, 2024.</li>
+    <li><span class="lead">Outstanding Paper Award</span>, Korean Society for the Gifted &mdash;
+    top 15 of 64 teams, 2024.</li>
+  </ul>
+
+  <h2>Writing</h2>
+  <p class="empty">Nothing published yet &mdash; notes on inductive bias and efficient inference are
+  in progress.</p>
+  <!--
+  When you have a post, delete the <p class="empty"> line above and use this instead:
+
+  <ul class="plain">
+    <li>
+      <a href="posts/effective-receptive-distance.html">What Effective Receptive Distance measures</a>
+      <span class="when"> &mdash; Aug 2026</span>
+    </li>
+  </ul>
+  -->
+
+  <h2>Languages &amp; Tools</h2>
+  <ul class="plain">
+    <li>Korean (native) and English (fluent &mdash; ISEF presenter and international research
+    collaborator). Joint research during high school with Fulton Science Academy (USA) and
+    National Junior College (Singapore).</li>
+    <li>Tools I live in: PyTorch, NumPy, NetworkX, C++, Git, LaTeX, Linux.</li>
+  </ul>
+
+  <footer>
+    <span>Yoonwoo Ku &middot; Seoul, Republic of Korea</span>
+    <span>Last updated July 2026</span>
+  </footer>
+
+</div>
+</body>
+</html>
