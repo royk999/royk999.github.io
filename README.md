@@ -1,81 +1,61 @@
-# Putting this site online — permanently, for free
+GitHub Pages builds the site with Jekyll on every push, so there is nothing to run locally
+unless you want a preview before publishing (see below).
 
-The goal: a URL like `https://royk999.github.io` that is live forever, costs nothing, and is what
-you paste into Jane Street's **Website UID** field. (That field is just Greenhouse's oddly-named
-box for "your personal website URL." It expects a link, not an ID number.)
+## How the site is laid out
 
----
-
-## Step 1 — Create the repository
-
-1. Go to <https://github.com/new> while signed in as `royk999`.
-2. **Repository name:** `royk999.github.io` — exactly this, matching your username. This is the
-   magic name that makes GitHub serve it at the root domain.
-3. Set it to **Public**. (Private repos need a paid plan to publish Pages.)
-4. Do not add a README, .gitignore, or license — leave all the checkboxes empty.
-5. Click **Create repository**.
-
-## Step 2 — Upload the files
-
-On the empty repository page, click **uploading an existing file**, then drag in:
-
-- `index.html`
-- `profile.jpg` (your photo — see Step 3)
-
-Scroll down, click **Commit changes**.
-
-## Step 3 — Add your photo
-
-Crop a photo square (roughly 400×400 px is plenty), save it as `profile.jpg`, and upload it
-alongside `index.html`. Until that file exists the page shows a neutral grey "YK" circle, so the
-site is never broken — it just looks unfinished. Any square JPEG works; if you'd rather use a PNG,
-change `src="profile.jpg"` to `src="profile.png"` in `index.html`.
-
-## Step 4 — Turn on Pages
-
-1. In the repository, go to **Settings → Pages** (left sidebar).
-2. Under **Build and deployment → Source**, choose **Deploy from a branch**.
-3. Branch: **main**, folder: **/ (root)**. Click **Save**.
-4. Wait 1–2 minutes, refresh the page. GitHub will show:
-   *Your site is live at https://royk999.github.io/*
-
-That URL is now permanent. GitHub serves it over HTTPS from their CDN, with no server for you to
-maintain, no bill, and no expiry. It stays up as long as the repository exists and is public.
-
-## Step 5 — Verify before you submit
-
-Open the URL in a private/incognito window (this proves it works for someone who isn't logged into
-your GitHub) and check it on your phone. Then paste it into the **Website UID** field.
-
----
-
-## Editing it later
-
-**Small text changes:** open `index.html` on github.com, click the pencil icon, edit, commit. The
-live site updates within a minute.
-
-**Bigger changes:** clone it locally and work in a real editor.
-
-```bash
-git clone https://github.com/royk999/royk999.github.io.git
-cd royk999.github.io
-# edit index.html, open it in a browser to preview
-git add -A && git commit -m "Update research section" && git push
+```
+royk999.github.io/
+├─ index.html          home page: profile, research, honors, and the five newest posts
+├─ _config.yml         site settings (title, sections, permalinks, plugins)
+├─ _layouts/           default.html (shell + nav), post.html, section.html
+├─ assets/
+│   ├─ css/            site.css (all styling) and syntax.css (code highlighting)
+│   └─ img/            profile.jpg and any images used in posts
+├─ _posts/
+│   ├─ icpc/           one .md file per post; the folder decides the section
+│   ├─ papers/
+│   └─ research/
+├─ _drafts/            unpublished posts; post-template.md shows the format
+├─ icpc/  papers/  research/   section pages, filled in automatically from _posts/
+└─ README.md           this file (excluded from the built site)
 ```
 
-Everything is in one file: HTML at the bottom, CSS in the `<style>` block at the top. No build
-step, no dependencies, no framework to keep up to date. That's deliberate — a site you can edit in
-thirty seconds is a site you'll actually keep current, and a stale personal page reads worse than
-no page at all.
+The three sections are defined once in `_config.yml` under `sections:`. The nav, the section
+pages, and the post headers all read from that list, so renaming or adding a section is a
+one-place change plus a matching folder under `_posts/` and a stub page like `icpc/index.md`.
 
-## Adding writing later
+## Writing a post
 
-The **Writing** section currently says nothing is published yet. When you have a post:
+1. Copy `_drafts/post-template.md` to `_posts/<section>/YYYY-MM-DD-short-slug.md`, where
+   `<section>` is `icpc`, `papers`, or `research`. The date prefix is required; without it
+   Jekyll ignores the file. A date in the future keeps the post hidden until that day.
+2. Fill in `title` and `description` in the front matter, then write in Markdown.
+3. Commit and push. The post appears at `/<section>/short-slug/`, on that section's page, and
+   under **Writing** on the home page within a minute or two.
 
-1. Make a `posts/` folder and put e.g. `posts/effective-receptive-distance.html` in it. Copying
-   `index.html` and replacing the body content is the fastest way to keep the styling consistent.
-2. In `index.html`, delete the `<p class="empty">…</p>` line under `<h2>Writing</h2>` and
-   uncomment the `<ul class="plain">` block right below it — it already has the correct markup.
+Formatting notes:
+
+- **Math:** wrap both inline and display math in double dollar signs: `$$O(n \log n)$$`.
+  Single `$` is left alone. Display math goes on its own lines. MathJax loads on every post.
+- **Code:** fenced blocks with a language name (` ```cpp `) are highlighted.
+- **Images:** put them in `assets/img/` and reference them as `/assets/img/name.png`.
+- **Drafts:** anything in `_drafts/` is never published. Move it to `_posts/` when ready.
+
+## Previewing locally (optional)
+
+Install Ruby from <https://rubyinstaller.org/> (pick the version with Devkit), then:
+
+```bash
+gem install bundler
+bundle install
+bundle exec jekyll serve --drafts --livereload
+```
+
+Open <http://localhost:4000>. The `Gemfile` pins the same Jekyll version GitHub uses, so what
+you see locally is what will be published. If you change `_config.yml`, restart the server.
+
+If you would rather not install Ruby, just push: a broken build shows up as a failed
+"pages build and deployment" run under the repository's **Actions** tab, and GitHub emails you.
 
 A first post is the single highest-value addition to this site. Right now the page tells people
 what you've done; one good technical post shows them how you think. Something like "what Effective

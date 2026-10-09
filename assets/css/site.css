@@ -1,0 +1,288 @@
+/* Shared stylesheet for every page: the home page, section pages, and posts.
+   The design tokens below are the only place colors are defined. */
+
+:root {
+  --bg:      #fbfaf8;
+  --fg:      #22201d;
+  --muted:   #6f6a63;
+  --faint:   #97918a;
+  --rule:    #e6e2db;
+  --link:    #2a4d7a;
+  --chip:    #f0ede7;
+  --measure: 42rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:    #15141a;
+    --fg:    #e9e6e2;
+    --muted: #a09a92;
+    --faint: #7d776f;
+    --rule:  #2c2a31;
+    --link:  #8fb6e6;
+    --chip:  #221f28;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue",
+               "Apple SD Gothic Neo", "Malgun Gothic", Arial, sans-serif;
+  font-size: 16.5px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.wrap {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 3.25rem 1.5rem 5rem;
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color .15s ease;
+}
+a:hover { border-bottom-color: currentColor; }
+
+/* ---------- top navigation (every page) ---------- */
+
+.topnav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.15rem;
+  margin-bottom: 2.75rem;
+  font-size: .76rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.topnav a { color: var(--faint); }
+.topnav a:hover { color: var(--fg); }
+.topnav a[aria-current="page"] { color: var(--fg); border-bottom-color: var(--rule); }
+
+/* ---------- home page header ---------- */
+
+.profile { display: flex; gap: 1.5rem; align-items: center; margin-bottom: 2.75rem; }
+
+.avatar {
+  width: 96px; height: 96px; flex: 0 0 96px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--chip);
+  border: 1px solid var(--rule);
+}
+
+h1 {
+  font-size: 1.7rem;
+  font-weight: 600;
+  letter-spacing: -.015em;
+  margin: 0 0 .3rem;
+  line-height: 1.2;
+}
+
+.kr { color: var(--faint); font-weight: 400; font-size: .95rem; margin-left: .45rem; }
+
+.tagline { color: var(--muted); margin: 0 0 .7rem; font-size: .95rem; }
+
+.links { font-size: .9rem; color: var(--faint); }
+.links a { margin-right: .35rem; }
+.links span[aria-hidden] { margin-right: .35rem; }
+
+@media (max-width: 480px) {
+  .profile { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .wrap { padding-top: 2.25rem; }
+  .topnav { margin-bottom: 2.25rem; }
+}
+
+/* ---------- sections ---------- */
+
+h2 {
+  font-size: .74rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .13em;
+  color: var(--faint);
+  margin: 3.25rem 0 1.4rem;
+  padding-bottom: .55rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.intro p { margin: 0 0 1rem; }
+.intro p:last-child { margin-bottom: 0; }
+
+.item { margin-bottom: 1.9rem; }
+.item:last-child { margin-bottom: 0; }
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.title { font-weight: 600; font-size: 1rem; line-height: 1.4; }
+
+.when {
+  color: var(--faint);
+  font-size: .82rem;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.role { color: var(--muted); font-size: .89rem; margin-top: .1rem; }
+
+.item p { margin: .5rem 0 0; font-size: .95rem; }
+
+.note { color: var(--muted); }
+
+ul.plain { list-style: none; margin: 0; padding: 0; }
+ul.plain li { margin-bottom: .7rem; font-size: .95rem; }
+ul.plain li:last-child { margin-bottom: 0; }
+
+.lead { font-weight: 600; }
+
+.empty {
+  color: var(--muted);
+  font-size: .95rem;
+  font-style: italic;
+  margin: 0;
+}
+
+.more { font-size: .9rem; margin: 1.2rem 0 0; }
+
+code {
+  background: var(--chip);
+  padding: .08em .35em;
+  border-radius: 3px;
+  font-size: .88em;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+footer {
+  margin-top: 4rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--rule);
+  color: var(--faint);
+  font-size: .82rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+footer a { color: var(--faint); }
+
+/* ---------- section list pages (icpc/, papers/, research/) ---------- */
+
+.section-head { margin-bottom: 2.4rem; }
+.section-head h1 { margin-bottom: .5rem; }
+.section-head p { color: var(--muted); font-size: .95rem; margin: 0 0 .6rem; }
+.section-head p:last-child { margin-bottom: 0; }
+
+.postlist .item { margin-bottom: 1.6rem; }
+.postlist .item:last-child { margin-bottom: 0; }
+
+/* ---------- posts ---------- */
+
+.post-head { margin-bottom: 2.2rem; }
+.post-head h1 { font-size: 1.75rem; margin-bottom: .5rem; }
+.post-head .meta {
+  margin: 0;
+  color: var(--faint);
+  font-size: .85rem;
+  font-variant-numeric: tabular-nums;
+}
+.post-head .meta a { color: var(--muted); }
+
+.post-body p { margin: 0 0 1.1rem; }
+
+/* Headings inside a post are real headings, not the uppercase section labels used on the home page. */
+.post-body h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: -.01em;
+  color: var(--fg);
+  margin: 2.5rem 0 .85rem;
+  padding-bottom: .35rem;
+  border-bottom: 1px solid var(--rule);
+}
+.post-body h3 { font-size: 1.05rem; font-weight: 600; margin: 2rem 0 .6rem; }
+.post-body h4 { font-size: .95rem; font-weight: 600; color: var(--muted); margin: 1.6rem 0 .5rem; }
+.post-body h2:first-child, .post-body h3:first-child { margin-top: 0; }
+
+.post-body ul, .post-body ol { margin: 0 0 1.1rem; padding-left: 1.5rem; }
+.post-body li { margin-bottom: .35rem; }
+.post-body li > p { margin-bottom: .5rem; }
+
+.post-body blockquote {
+  margin: 0 0 1.1rem;
+  padding: .15rem 0 .15rem 1.1rem;
+  border-left: 3px solid var(--rule);
+  color: var(--muted);
+}
+.post-body blockquote p:last-child { margin-bottom: 0; }
+
+.post-body img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1.5rem auto;
+  border-radius: 4px;
+}
+.post-body figure { margin: 1.6rem 0; }
+.post-body figcaption { font-size: .85rem; color: var(--faint); text-align: center; margin-top: .5rem; }
+
+.post-body hr { border: 0; border-top: 1px solid var(--rule); margin: 2.5rem 0; }
+
+.post-body table {
+  border-collapse: collapse;
+  font-size: .9rem;
+  margin: 0 0 1.3rem;
+}
+.post-body th, .post-body td {
+  padding: .45rem .75rem;
+  border-bottom: 1px solid var(--rule);
+  text-align: left;
+  vertical-align: top;
+}
+.post-body th {
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Code blocks. Jekyll wraps fenced blocks in div.highlighter-rouge > div.highlight > pre. */
+pre {
+  margin: 0 0 1.2rem;
+  padding: .9rem 1.05rem;
+  background: var(--chip);
+  border-radius: 5px;
+  overflow-x: auto;
+  font-size: .84rem;
+  line-height: 1.55;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+pre code { background: none; padding: 0; border-radius: 0; font-size: inherit; }
+div.highlighter-rouge { margin: 0 0 1.2rem; }
+div.highlighter-rouge pre { margin: 0; }
+
+/* Display math can be wider than the column on phones; scroll instead of overflowing. */
+mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+
+.post-nav {
+  margin-top: 3rem;
+  font-size: .9rem;
+}

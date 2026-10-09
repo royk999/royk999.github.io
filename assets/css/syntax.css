@@ -1,0 +1,72 @@
+/* Syntax highlighting for Rouge (the highlighter GitHub Pages uses).
+   Token classes follow Pygments short names. Colors sit on the site's palette
+   and switch with the system color scheme. */
+
+:root {
+  --hl-comment:  #8a847c;
+  --hl-keyword:  #7a3e9d;
+  --hl-type:     #8a4b00;
+  --hl-string:   #2f7a4f;
+  --hl-number:   #a0522d;
+  --hl-func:     #2a4d7a;
+  --hl-preproc:  #b0352f;
+  --hl-punct:    #6f6a63;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --hl-comment:  #7d776f;
+    --hl-keyword:  #c69ae6;
+    --hl-type:     #e3b76a;
+    --hl-string:   #8fd1a5;
+    --hl-number:   #e6a37a;
+    --hl-func:     #8fb6e6;
+    --hl-preproc:  #e88b85;
+    --hl-punct:    #a09a92;
+  }
+}
+
+/* comments */
+.highlight .c, .highlight .c1, .highlight .cm, .highlight .cs, .highlight .cd,
+.highlight .ch { color: var(--hl-comment); font-style: italic; }
+.highlight .cp, .highlight .cpf { color: var(--hl-preproc); }
+
+/* keywords and operators-as-words */
+.highlight .k, .highlight .kd, .highlight .kn, .highlight .kp, .highlight .kr,
+.highlight .kv, .highlight .ow { color: var(--hl-keyword); }
+
+/* types, constants, classes, namespaces */
+.highlight .kt, .highlight .kc, .highlight .nc, .highlight .nn,
+.highlight .no, .highlight .ne { color: var(--hl-type); }
+
+/* strings and characters */
+.highlight .s, .highlight .s1, .highlight .s2, .highlight .sa, .highlight .sb,
+.highlight .sc, .highlight .sd, .highlight .se, .highlight .sh, .highlight .si,
+.highlight .sr, .highlight .ss, .highlight .sx, .highlight .dl { color: var(--hl-string); }
+
+/* numbers */
+.highlight .m, .highlight .mi, .highlight .mf, .highlight .mh, .highlight .mo,
+.highlight .mb, .highlight .mx, .highlight .il { color: var(--hl-number); }
+
+/* functions, decorators, attributes, tags */
+.highlight .nf, .highlight .fm, .highlight .nd, .highlight .na,
+.highlight .nt, .highlight .nl { color: var(--hl-func); }
+
+/* plain names and variables keep the text color */
+.highlight .n, .highlight .nb, .highlight .bp, .highlight .nv, .highlight .nx,
+.highlight .vi, .highlight .vc, .highlight .vg, .highlight .vm { color: inherit; }
+
+/* operators and punctuation */
+.highlight .o, .highlight .p, .highlight .pi { color: var(--hl-punct); }
+
+/* diffs and generic markup */
+.highlight .gd { background: rgba(220, 60, 60, .12); }
+.highlight .gi { background: rgba(60, 160, 90, .12); }
+.highlight .gh, .highlight .gu, .highlight .gs { font-weight: 600; }
+.highlight .ge { font-style: italic; }
+.highlight .gp { color: var(--hl-comment); user-select: none; }
+
+/* Rouge tags tokens it cannot lex as errors. Do not paint them red. */
+.highlight .err { color: inherit; background: none; }
+
+.highlight .lineno { color: var(--hl-comment); user-select: none; padding-right: .8em; }

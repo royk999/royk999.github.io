@@ -1,190 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Yoonwoo (Roy) Ku</title>
-<meta name="description" content="Yoonwoo (Roy) Ku — undergraduate in Computer Science and Engineering at Seoul National University. Research on the inductive bias of vision models, efficient inference, and combinatorial optimization.">
-<meta name="author" content="Yoonwoo Ku">
-<meta name="theme-color" content="#fbfaf8">
+---
+layout: default
+title: Yoonwoo (Roy) Ku
+description: >-
+  Yoonwoo (Roy) Ku — undergraduate in Computer Science and Engineering at Seoul National University.
+  Research on the inductive bias of vision models, efficient inference, and combinatorial optimization.
+---
 
-<!-- Open Graph: controls the preview card when the link is shared -->
-<meta property="og:type" content="profile">
-<meta property="og:title" content="Yoonwoo (Roy) Ku">
-<meta property="og:description" content="CSE undergraduate at Seoul National University. Inductive bias of vision models, efficient inference, combinatorial optimization, competitive programming.">
-<meta property="og:url" content="https://royk999.github.io/">
-
-<style>
-  :root {
-    --bg:      #fbfaf8;
-    --fg:      #22201d;
-    --muted:   #6f6a63;
-    --faint:   #97918a;
-    --rule:    #e6e2db;
-    --link:    #2a4d7a;
-    --chip:    #f0ede7;
-    --measure: 42rem;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg:    #15141a;
-      --fg:    #e9e6e2;
-      --muted: #a09a92;
-      --faint: #7d776f;
-      --rule:  #2c2a31;
-      --link:  #8fb6e6;
-      --chip:  #221f28;
-    }
-  }
-
-  * { box-sizing: border-box; }
-
-  html { -webkit-text-size-adjust: 100%; }
-
-  body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--fg);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue",
-                 "Apple SD Gothic Neo", "Malgun Gothic", Arial, sans-serif;
-    font-size: 16.5px;
-    line-height: 1.65;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-  }
-
-  .wrap {
-    max-width: var(--measure);
-    margin: 0 auto;
-    padding: 4.5rem 1.5rem 5rem;
-  }
-
-  a {
-    color: var(--link);
-    text-decoration: none;
-    border-bottom: 1px solid transparent;
-    transition: border-color .15s ease;
-  }
-  a:hover { border-bottom-color: currentColor; }
-
-  /* ---------- header ---------- */
-
-  header { display: flex; gap: 1.5rem; align-items: center; margin-bottom: 2.75rem; }
-
-  .avatar {
-    width: 96px; height: 96px; flex: 0 0 96px;
-    border-radius: 50%;
-    object-fit: cover;
-    background: var(--chip);
-    border: 1px solid var(--rule);
-  }
-
-  h1 {
-    font-size: 1.7rem;
-    font-weight: 600;
-    letter-spacing: -.015em;
-    margin: 0 0 .3rem;
-    line-height: 1.2;
-  }
-
-  .kr { color: var(--faint); font-weight: 400; font-size: .95rem; margin-left: .45rem; }
-
-  .tagline { color: var(--muted); margin: 0 0 .7rem; font-size: .95rem; }
-
-  .links { font-size: .9rem; color: var(--faint); }
-  .links a { margin-right: .35rem; }
-  .links span[aria-hidden] { margin-right: .35rem; }
-
-  @media (max-width: 480px) {
-    header { flex-direction: column; align-items: flex-start; gap: 1rem; }
-    .wrap { padding-top: 3rem; }
-  }
-
-  /* ---------- sections ---------- */
-
-  h2 {
-    font-size: .74rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: .13em;
-    color: var(--faint);
-    margin: 3.25rem 0 1.4rem;
-    padding-bottom: .55rem;
-    border-bottom: 1px solid var(--rule);
-  }
-
-  .intro p { margin: 0 0 1rem; }
-  .intro p:last-child { margin-bottom: 0; }
-
-  .item { margin-bottom: 1.9rem; }
-  .item:last-child { margin-bottom: 0; }
-
-  .head {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 1rem;
-  }
-
-  .title { font-weight: 600; font-size: 1rem; line-height: 1.4; }
-
-  .when {
-    color: var(--faint);
-    font-size: .82rem;
-    font-variant-numeric: tabular-nums;
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-
-  .role { color: var(--muted); font-size: .89rem; margin-top: .1rem; }
-
-  .item p { margin: .5rem 0 0; font-size: .95rem; }
-
-  .note { color: var(--muted); }
-
-  ul.plain { list-style: none; margin: 0; padding: 0; }
-  ul.plain li { margin-bottom: .7rem; font-size: .95rem; }
-  ul.plain li:last-child { margin-bottom: 0; }
-
-  .lead { font-weight: 600; }
-
-  .empty {
-    color: var(--muted);
-    font-size: .95rem;
-    font-style: italic;
-    margin: 0;
-  }
-
-  code {
-    background: var(--chip);
-    padding: .08em .35em;
-    border-radius: 3px;
-    font-size: .88em;
-    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  }
-
-  footer {
-    margin-top: 4rem;
-    padding-top: 1.4rem;
-    border-top: 1px solid var(--rule);
-    color: var(--faint);
-    font-size: .82rem;
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-</style>
-</head>
-
-<body>
-<div class="wrap">
-
-  <header>
-    <!-- Replace profile.jpg with your own photo (square crop, ~400x400 works well).
+  <header class="profile">
+    <!-- Replace assets/img/profile.jpg with your own photo (square crop, ~400x400 works well).
          If the file is missing, a neutral placeholder is shown instead. -->
-    <img class="avatar" src="profile.jpg" alt="Yoonwoo Ku"
+    <img class="avatar" src="{{ '/assets/img/profile.jpg' | relative_url }}" alt="Yoonwoo Ku"
          onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 96 96%22&gt;&lt;rect width=%2296%22 height=%2296%22 fill=%22%23e9e5de%22/&gt;&lt;text x=%2248%22 y=%2260%22 font-family=%22Helvetica,Arial%22 font-size=%2234%22 fill=%22%23a29b92%22 text-anchor=%22middle%22&gt;YK&lt;/text&gt;&lt;/svg&gt;'">
     <div>
       <h1>Yoonwoo Ku <span class="kr">구윤우 · Roy</span></h1>
@@ -318,20 +143,29 @@
     R&amp;E delegations; 1,800+ students from 75+ countries.</li>
   </ul>
 
-<!--
-<h2>Writing</h2>
-  <p class="empty">Nothing published yet &mdash; notes on inductive bias and efficient inference are
-  in progress.</p>
-  When you have a post, delete the <p class="empty"> line above and use this instead:
+  <h2>Writing</h2>
 
+  {%- comment -%}
+    Filled in automatically from _posts/. The five newest posts across all sections
+    appear here; each section page lists everything in that section.
+  {%- endcomment -%}
+  {%- if site.posts.size > 0 %}
   <ul class="plain">
+    {%- for post in site.posts limit: 5 %}
+    {%- assign cat = post.categories | first %}
+    {%- assign sec = site.sections | where: "key", cat | first %}
     <li>
-      <a href="posts/effective-receptive-distance.html">What Effective Receptive Distance measures</a>
-      <span class="when"> &mdash; Aug 2026</span>
+      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      <span class="when"> &mdash; {{ post.date | date: "%b %Y" }}{% if sec %} &middot; {{ sec.name }}{% endif %}</span>
     </li>
+    {%- endfor %}
   </ul>
--->
-  
+  <p class="note more">Browse by topic:
+    {%- for s in site.sections %} <a href="{{ s.url | relative_url }}">{{ s.name }}</a>{% unless forloop.last %},{% endunless %}{% endfor %}.</p>
+  {%- else %}
+  <p class="empty">Nothing published yet &mdash; notes on ICPC, papers, and research are in progress.</p>
+  {%- endif %}
+
   <h2>Languages &amp; Tools</h2>
   <ul class="plain">
     <li>Korean (native) and English (fluent &mdash; ISEF presenter and international research
@@ -339,12 +173,3 @@
     National Junior College (Singapore).</li>
     <li>Tools I live in: PyTorch, NumPy, NetworkX, C++, Git, LaTeX, Linux.</li>
   </ul>
-
-  <footer>
-    <span>Yoonwoo Ku &middot; Seoul, Republic of Korea</span>
-    <span>Last updated July 2026</span>
-  </footer>
-
-</div>
-</body>
-</html>

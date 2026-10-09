@@ -1,0 +1,24 @@
+---
+layout: default
+---
+<div class="section-head">
+  <h1>{{ page.title }}</h1>
+{{ content }}
+</div>
+
+<div class="postlist">
+  {%- assign posts = site.categories[page.section] %}
+  {%- for post in posts %}
+  <div class="item">
+    <div class="head">
+      <a class="title" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      <span class="when">{{ post.date | date: "%b %-d, %Y" }}</span>
+    </div>
+    {%- if post.description %}
+    <p class="note">{{ post.description }}</p>
+    {%- endif %}
+  </div>
+  {%- else %}
+  <p class="empty">Nothing here yet.</p>
+  {%- endfor %}
+</div>

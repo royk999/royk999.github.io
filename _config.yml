@@ -1,0 +1,62 @@
+# Site settings. GitHub Pages reads this on every push; `jekyll serve` reads it once at start.
+
+title: Yoonwoo (Roy) Ku
+description: >-
+  CSE undergraduate at Seoul National University. Inductive bias of vision models,
+  efficient inference, combinatorial optimization, competitive programming.
+url: "https://royk999.github.io"
+baseurl: ""
+lang: en
+timezone: Asia/Seoul
+
+author:
+  name: Yoonwoo Ku
+  email: roynine90@gmail.com
+
+# The three blog sections. `key` is the category name, which is also the
+# folder name under _posts/. Used by the nav, the section pages, and post headers.
+sections:
+  - key: icpc
+    name: ICPC
+    url: /icpc/
+  - key: papers
+    name: Papers
+    url: /papers/
+  - key: research
+    name: Research
+    url: /research/
+
+# Post at _posts/icpc/2026-10-10-my-slug.md  ->  /icpc/my-slug/
+permalink: /:categories/:title/
+
+# Posts dated in the future stay unpublished until that date.
+future: false
+
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  hard_wrap: false
+  math_engine: mathjax        # $$ ... $$ for both inline and display math
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    default_lang: plaintext
+
+plugins:
+  - jekyll-feed               # /feed.xml
+  - jekyll-sitemap            # /sitemap.xml
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      math: true              # load MathJax on every post; set `math: false` in a post to skip
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - node_modules
