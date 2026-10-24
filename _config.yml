@@ -37,7 +37,8 @@ highlighter: rouge
 kramdown:
   input: GFM
   hard_wrap: false
-  math_engine: mathjax        # $$ ... $$ for both inline and display math
+  math_engine: mathjax        # $$ ... $$ is protected TeX; single $ ... $ also renders (see default.html)
+  smart_quotes: ["apos", "apos", "quot", "quot"]   # keep ' and " straight so f'(x) in $...$ survives
   syntax_highlighter: rouge
   syntax_highlighter_opts:
     default_lang: plaintext

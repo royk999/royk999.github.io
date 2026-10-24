@@ -34,8 +34,11 @@
 <script>
   window.MathJax = {
     tex: {
-      inlineMath: [['\(', '\)']],
-      displayMath: [['\[', '\]'], ['$$', '$$']]
+      // Single dollars work for inline math, but kramdown processes that text as
+      // Markdown first. Use $$...$$ for anything with \{ \}, \|, * or \\ in it.
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['\\[', '\\]'], ['$$', '$$']],
+      processEscapes: true
     },
     options: {
       renderActions: {
