@@ -55,6 +55,25 @@ defaults:
       layout: post
       math: true              # load MathJax on every post; set `math: false` in a post to skip
 
+  # Jekyll does NOT turn folders inside _posts/ into categories (only folders above
+  # it, like icpc/_posts/). These scopes give each post the category of its folder.
+  # Adding a section means adding one more block here.
+  - scope:
+      path: "_posts/icpc"
+      type: posts
+    values:
+      categories: [icpc]
+  - scope:
+      path: "_posts/papers"
+      type: posts
+    values:
+      categories: [papers]
+  - scope:
+      path: "_posts/research"
+      type: posts
+    values:
+      categories: [research]
+
 exclude:
   - README.md
   - Gemfile

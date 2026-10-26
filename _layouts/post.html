@@ -1,8 +1,11 @@
 ---
 layout: default
 ---
+{%- comment -%} Jekyll 3's `where` returns the whole list when the value is nil,
+    so look up the section only when the post actually has a category. {%- endcomment -%}
 {%- assign cat = page.categories | first -%}
-{%- assign sec = site.sections | where: "key", cat | first %}
+{%- assign sec = nil -%}
+{%- if cat -%}{%- assign sec = site.sections | where: "key", cat | first -%}{%- endif %}
 <article class="post">
   <header class="post-head">
     <h1>{{ page.title }}</h1>

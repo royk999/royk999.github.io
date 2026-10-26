@@ -21,8 +21,12 @@ royk999.github.io/
 ```
 
 The three sections are defined once in `_config.yml` under `sections:`. The nav, the section
-pages, and the post headers all read from that list, so renaming or adding a section is a
-one-place change plus a matching folder under `_posts/` and a stub page like `icpc/index.md`.
+pages, and the post headers all read from that list. Adding a section takes four things: an
+entry under `sections:`, a matching block under `defaults:` that gives its folder a category,
+a folder under `_posts/`, and a stub page like `icpc/index.md`.
+
+The `defaults:` block matters because Jekyll does not treat a folder inside `_posts/` as a
+category on its own. Without it, a post lands at the site root and no section page lists it.
 
 ## Writing a post
 

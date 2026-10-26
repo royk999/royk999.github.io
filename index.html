@@ -153,7 +153,8 @@ description: >-
   <ul class="plain">
     {%- for post in site.posts limit: 5 %}
     {%- assign cat = post.categories | first %}
-    {%- assign sec = site.sections | where: "key", cat | first %}
+    {%- assign sec = nil %}
+    {%- if cat %}{% assign sec = site.sections | where: "key", cat | first %}{% endif %}
     <li>
       <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
       <span class="when"> &mdash; {{ post.date | date: "%b %Y" }}{% if sec %} &middot; {{ sec.name }}{% endif %}</span>
